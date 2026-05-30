@@ -272,84 +272,92 @@ startBtn.addEventListener("click", function(){
 
 submitBtn.addEventListener("click", function(){
 
+    let confirmSubmit = confirm(
+        "Are you sure you want to submit the test?\n\nOnce submitted, you cannot continue the test."
+    );
 
-    alert("Submit clicked");
-    
+    if(!confirmSubmit){
+
+        return; // User clicked Cancel
+
+    }
+
     saveCurrentAnswer();
-    
+
     clearInterval(countdown);
 
     timer.innerHTML = "Test Submitted";
 
     checkResult();
 
-
 });
-
 
 
 // CHECK RESULT FUNCTION
 
 function checkResult(){
 
-    let score = 0;
+questionBox.style.display = "none";
+submitBtn.style.display = "none";
+nextBtn.style.display = "none";
+prevBtn.style.display = "none";
+palette.style.display = "none";
+
+
+    let correct = 0;
+    let wrong = 0;
+    let unattempted = 0;
 
     let reviewHTML = "";
 
-
-
     questions.forEach(function(q, index){
 
-        let userAnswer = userAnswers[index] || "Not Attempted";
+        let userAnswer = userAnswers[index];
 
+        // Count Correct / Wrong / Unattempted
 
+        if(userAnswer === undefined){
 
-        // SCORE
+            unattempted++;
 
-        if(userAnswer === q.answer){
+            userAnswer = "Not Attempted";
 
-            score++;
+        }
+        else if(userAnswer === q.answer){
+
+            correct++;
+
+        }
+        else{
+
+            wrong++;
 
         }
 
-
-
-        // REVIEW SECTION
+        // Review Section
 
         reviewHTML += `
 
             <div class="review-box">
 
                 <h3>
-
                     Q${index + 1}. ${q.question}
-
                 </h3>
 
                 <p>
-
                     <strong>Your Answer:</strong>
-
                     ${userAnswer}
-
                     ${userAnswer === q.answer ? "✅" : "❌"}
-
                 </p>
 
                 <p>
-
                     <strong>Correct Answer:</strong>
-
                     ${q.answer} ✅
-
                 </p>
 
                 <p>
-
                     <strong>Explanation:</strong>
-
                     ${q.explanation}
-
                 </p>
 
             </div>
@@ -359,19 +367,59 @@ function checkResult(){
     });
 
 
+// SSC CGL Marking
 
-    // SHOW RESULT
+    let marksEarned = correct * 2;
+
+    let negativeMarks = wrong * 0.5;
+
+    let finalScore = marksEarned - negativeMarks;
+
+    let maxMarks = questions.length * 2;
+
+    let accuracy = 0;
+
+    if(correct + wrong > 0){
+
+        accuracy = (
+            (correct / (correct + wrong)) * 100
+        ).toFixed(2);
+
+    }
 
     result.innerHTML = `
 
-        <h2>
+<div class="review-box">
 
-            Your Score: ${score}/${questions.length}
+    <h2>📊 SSC CGL Result</h2>
 
-        </h2>
+    <table style="width:100%; text-align:center; border-collapse:collapse;">
 
-        ${reviewHTML}
+        <tr>
+            <th>Total</th>
+            <th>Correct</th>
+            <th>Wrong</th>
+            <th>Unattempted</th>
+            <th>Score</th>
+            <th>Negative</th>
+            <th>Accuracy</th>
+        </tr>
 
-    `;
+        <tr>
+            <td>${questions.length}</td>
+            <td>✅ ${correct}</td>
+            <td>❌ ${wrong}</td>
+            <td>⚪ ${unattempted}</td>
+            <td>${finalScore}/${maxMarks}</td>
+            <td>${negativeMarks}</td>
+            <td>${accuracy}%</td>
+        </tr>
+
+    </table>
+
+</div>
+
+${reviewHTML}
+`;
 
 }

@@ -4,36 +4,43 @@ const jsonInput = document.getElementById("jsonInput");
 
 const message = document.getElementById("message");
 
+const successMessage = document.getElementById("successMessage");
+
 
 
 importBtn.addEventListener("click", function(){
 
-    try{
+     try {
+        const jsonText = jsonInput.value.trim();
 
-        // Convert JSON text to JavaScript object
+        // Validate empty input first
+        if (!jsonText) {
+            message.innerHTML = "Please enter JSON ❌";
+            return;
+        }
 
-        const questions = JSON.parse(jsonInput.value);
+        // Parse JSON
+        const questions = JSON.parse(jsonText);
 
-
-
-        // Save in browser storage
-
+        // Save to localStorage
         localStorage.setItem("sscQuestions", JSON.stringify(questions));
 
-             successMessage.innerHTML =
-        "✅ Questions uploaded successfully! Redirecting...";
+        // SUCCESS MESSAGE
+        successMessage.innerHTML =
+            "✅ Questions uploaded successfully! Redirecting...";
 
-             setTimeout(function()
-              {
-                 window.location.href = "index.html";
-            }, 2000);
+        message.innerHTML = ""; // clear error
 
-    }
+        // Redirect after 2 sec
+        setTimeout(function () {
+            window.location.href = "index.html";
+        }, 2000);
 
-    catch(error){
+    } catch (error) {
+        console.log("JSON Error:", error);
 
         message.innerHTML = "Invalid JSON ❌";
-
+        successMessage.innerHTML = "";
     }
 
 });

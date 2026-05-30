@@ -214,35 +214,45 @@ textarea{
 
 .review-box{
 
-    background-color: #f8fafc;
+    background: white;
 
-    padding: 20px;
+    padding: 25px;
 
-    margin-top: 20px;
+    margin-top: 25px;
 
-    border-radius: 10px;
+    border-radius: 18px;
 
-    border-left: 5px solid #2563eb;
+    border-left: 8px solid #2563eb;
 
     text-align: left;
 
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
 }
 
 
 
 .review-box h3{
 
-    color: #111827;
+    color: #1e3a8a;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+
+    border-bottom: 2px solid #e5e7eb;
+
+    padding-bottom: 10px;
 }
 
 
 
 .review-box p{
 
-    font-size: 16px;
+    font-size: 17px;
 
-    line-height: 1.6;
+    line-height: 1.8;
+
+    color: #334155;
 }
 
 /* Navigation Palette */
@@ -419,4 +429,43 @@ textarea{
         font-size: 20px;
     }
 
+    
+}
+
+/* RESULT TABLE */
+
+.review-box table{
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+}
+
+.review-box th{
+
+    background-color: #2563eb;
+
+    color: white;
+
+    padding: 14px;
+
+    font-size: 16px;
+}
+
+.review-box td{
+
+    padding: 16px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.review-box tr:hover{
+
+    background-color: #f8fafc;
 }
