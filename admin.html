@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>SSC CGL Admin Panel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>SSC CGL Admin Panel</h1>
+
+        <h2>Paste Questions JSON</h2>
+
+        <!-- Large Text Area -->
+
+        <textarea 
+            id="jsonInput"
+            placeholder="Paste JSON Questions Here"
+        ></textarea>
+
+        <br><br>
+
+        <!-- Import Button -->
+
+        <button onclick="window.location.href='index.html'">
+             ← Back to Mock Test
+        </button>
+
+        <button id="importBtn">
+
+            Import Questions
+
+        </button>
+        
+
+        <!-- Success Message -->
+
+        <h3 id="message"></h3>
+
+    </div>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

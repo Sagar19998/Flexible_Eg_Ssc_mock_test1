@@ -1,0 +1,422 @@
+body{
+
+    background-color: #eef2ff;
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+
+/* Main Container */
+
+.container{
+
+    width: 80%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+
+
+/* Heading */
+
+h1{
+
+    text-align: center;
+
+    color: #1e3a8a;
+
+    margin-bottom: 10px;
+}
+
+
+
+/* Timer */
+
+#timer{
+
+    text-align: center;
+
+    color: red;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    display: none;
+}
+
+
+
+/* Buttons */
+
+button{
+
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+    margin-top: 20px;
+}
+
+
+
+button:hover{
+
+    background-color: #1d4ed8;
+
+    transform: scale(1.03);
+}
+
+
+
+/* Question Box */
+
+#questionBox{
+
+    display: none;
+}
+
+
+
+/* Each Question Card */
+
+.question{
+
+    background-color: #f8fafc;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    border-left: 6px solid #2563eb;
+
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+/* Question Text */
+
+.question h3{
+
+    margin-bottom: 15px;
+
+    color: #111827;
+}
+
+
+
+/* Options */
+
+label{
+
+    display: block;
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+
+/* Hover On Options */
+
+label:hover{
+
+    background-color: #dbeafe;
+}
+
+
+
+/* Radio Button */
+
+input[type="radio"]{
+
+    margin-right: 10px;
+}
+
+
+
+/* Result */
+
+#result{
+
+    text-align: center;
+
+    color: green;
+
+    margin-top: 30px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+/* Admin panel */
+
+textarea{
+
+    width: 100%;
+
+    height: 400px;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid gray;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+}
+
+/*  */
+
+.review-box{
+
+    background-color: #f8fafc;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    border-radius: 10px;
+
+    border-left: 5px solid #2563eb;
+
+    text-align: left;
+
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.review-box h3{
+
+    color: #111827;
+}
+
+
+
+.review-box p{
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+/* Navigation Palette */
+
+#palette{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* Palette Buttons */
+
+.palette-btn{
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background-color: gray;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+
+/* Hover */
+
+.palette-btn:hover{
+
+    transform: scale(1.1);
+}
+
+
+
+/* Attempted Question */
+
+.attempted{
+
+    background-color: green !important;
+}
+
+/* Navigation Buttons */
+
+#navigationButtons{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+
+/* mobile view */
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 768px){
+
+    .container{
+
+        width: 95% !important;
+
+        padding: 15px !important;
+
+        margin: 10px auto !important;
+    }
+
+
+
+    h1{
+
+        font-size: 24px !important;
+
+        text-align: center;
+    }
+
+
+
+    #palette{
+
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+
+
+    .palette-btn{
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 14px;
+    }
+
+
+
+    button{
+
+        width: 100%;
+
+        margin-top: 10px;
+    }
+
+
+
+    #navigationButtons{
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+
+    .question{
+
+        padding: 15px !important;
+    }
+
+
+
+    .question h3{
+
+        font-size: 18px;
+
+        line-height: 1.5;
+    }
+
+
+
+    label{
+
+        display: block;
+
+        margin-top: 10px;
+
+        line-height: 1.5;
+    }
+
+
+
+    textarea{
+
+        width: 100%;
+
+        height: 300px;
+    }
+
+
+
+    #timer{
+
+        font-size: 20px;
+    }
+
+}
